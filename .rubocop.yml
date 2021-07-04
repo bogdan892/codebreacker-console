@@ -1,0 +1,31 @@
+require:
+  - rubocop-rspec
+  - rubocop-performance
+
+AllCops:
+  NewCops: enable
+  TargetRubyVersion: 2.7
+
+Style/Documentation:
+  Enabled: false
+
+Style/FrozenStringLiteralComment:
+  Enabled: false
+
+Layout/LineLength:
+  Max: 120
+
+Metrics/BlockLength:
+  IgnoredMethods: ['describe', 'context']
+
+RSpec/ExampleLength:
+  Max: 10
+
+RSpec/MultipleMemoizedHelpers:
+  Max: 10
+
+RSpec/MessageSpies:
+  Enabled: false
+
+RSpec/SubjectStub:
+  Enabled: false
