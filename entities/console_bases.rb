@@ -63,10 +63,10 @@ class ConsoleBases < Checking
     @hint = game.use_hint
     if @hint == 'false'
       puts I18n.t(:HintsEnded)
-      @player_input
+      player_input
     else
       puts @hint
-      @player_input
+      player_input
     end
   end
 
