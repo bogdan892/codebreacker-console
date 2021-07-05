@@ -11,7 +11,6 @@ class ConsoleBases < Checking
   def call
     game.to_h[:attempts_total].times do
       player_input
-      p @game.secret_code
       show_hint if @player_input == 'hint'
       game_code_check
       game_check_status
@@ -64,10 +63,10 @@ class ConsoleBases < Checking
     @hint = game.use_hint
     if @hint == 'false'
       puts I18n.t(:HintsEnded)
-      player_input
+      @player_input
     else
       puts @hint
-      player_input
+      @player_input
     end
   end
 
