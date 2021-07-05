@@ -66,23 +66,10 @@ RSpec.describe ConsoleBases do
       expect { console_base.game_lose }.to output("#{I18n.t(:Loss)}\n1234\n").to_stdout
     end
 
-    xit 'check status if game won ' do
-      console_base.game.instance_variable_set(:@secret_code, '1234'.chars)
-      allow(console_base).to receive(:gets).and_return('1234', 'yes', 'exit')
-      expect(console_base.game_check_status).to receive(:game_won)
-      console_base.call
-    end
-
     it 'puts message if save game' do
       console_base.game.instance_variable_set(:@secret_code, '1234'.chars)
       allow(console_base).to receive(:gets).and_return('1234', 'yes', 'exit')
       expect { console_base.save_game }.to output("#{I18n.t(:SaveResult)}\n").to_stdout
-    end
-
-    xit 'check input codes ' do
-      console_base.game.instance_variable_set(:@secret_code, '1234'.chars)
-      allow(console_base).to receive(:gets).and_return('1234', 'yes', 'exit')
-      expect(console_base).to receive(:game_won)
     end
   end
 end

@@ -52,12 +52,6 @@ RSpec.describe ConsolePlayer do
       end.to output("#{I18n.t(:InvalidDifficulty)}\n#{I18n.t(:EnterDifficulty)}\n").to_stdout
     end
 
-    xit 'puts invalid name and enter name message' do
-      allow(registration).to receive(:gets).and_return('name', 'exit')
-      expect(registration).to have_received(:player_name)
-      registration.call
-    end
-
     it 'if called method #call' do
       registration.instance_variable_set(:@player_name, 'Petro')
       registration.instance_variable_set(:@difficulty, 'easy')

@@ -22,6 +22,13 @@ RSpec.describe ConsoleOptions do
       console_options.show_main_menu
     end
 
+    it 'when user type stats' do
+      allow(console_options).to receive(:user_input).and_return(stats)
+      allow(console_options).to receive(:load_from_db)
+      expect(console_options).to receive(:show_main_menu)
+      console_options.game_stats
+    end
+
     it 'user choose show rules' do
       allow(console_options).to receive(:user_input).and_return(rules)
       expect(console_options).to receive(:game_rules)
