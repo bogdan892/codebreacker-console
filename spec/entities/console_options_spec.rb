@@ -41,7 +41,7 @@ RSpec.describe ConsoleOptions do
     end
 
     it 'when user type game rules' do
-      allow(console_options).to receive(:user_input).and_return(invalid_command)
+      allow(console_options).to receive(:user_input).and_return('rules')
       expect(console_options).to receive(:show_main_menu)
       console_options.game_rules
     end

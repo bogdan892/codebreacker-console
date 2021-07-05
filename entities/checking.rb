@@ -19,8 +19,4 @@ class Checking < GameState
   rescue StandardError
     player_input_again
   end
-
-  # def is_hint?(user_input)
-  #   raise Error unless user_input.downcase == 'hint'
-  # end
 end

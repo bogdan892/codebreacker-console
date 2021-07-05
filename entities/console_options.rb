@@ -41,6 +41,6 @@ class ConsoleOptions < GameState
   end
 
   def registration
-    ConsolePlayer.new.call
+    @registration = ConsolePlayer.new.call
   end
 end

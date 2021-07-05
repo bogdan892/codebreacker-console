@@ -20,5 +20,3 @@ class GameConsole < ConsoleOptions
     @game.show_main_menu
   end
 end
-# ConsolePlayer.new.start
-# GameConsole.new.start

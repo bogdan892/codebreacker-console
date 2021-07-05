@@ -5,14 +5,15 @@ RSpec.describe GameConsole do
   let(:console) { described_class.new }
   let(:interface) { console.instance_variable_get(:@game) }
 
-  describe 'when #start' do
-    it 'when #initialize set Interface instance' do
+  describe 'when GameConsole' do
+    it '#initialize set ConsoleOptions instance' do
       expect(console.instance_variable_get(:@game)).to be_instance_of ConsoleOptions
     end
 
-    # it 'when #initialize set Interface instance' do
-    #   allow(console).to receive(:start)
-    #   expect(interface).to receive(:show_main_menu)
-    # end
+    it 'when #start show main menu' do
+      allow(console).to receive(:gets).and_return('exit')
+      expect(interface).to receive(:show_main_menu)
+      console.start
+    end
   end
 end

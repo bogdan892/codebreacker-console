@@ -3,6 +3,8 @@
 RSpec.describe ConsolePlayer do
   subject(:registration) { described_class.new }
 
+  let(:qqqqq) { registration.instance_variable_get(:@console_base) }
+
   describe 'when #player type name' do
     let(:incorrect_name) { 'qw' }
 
@@ -53,6 +55,16 @@ RSpec.describe ConsolePlayer do
     xit 'puts invalid name and enter name message' do
       allow(registration).to receive(:gets).and_return('name', 'exit')
       expect(registration).to have_received(:player_name)
+      registration.call
+    end
+
+    it 'if called method #call' do
+      registration.instance_variable_set(:@player_name, 'Petro')
+      registration.instance_variable_set(:@difficulty, 'easy')
+      allow(registration).to receive(:welcome)
+      allow(registration).to receive(:player_name)
+      allow(registration).to receive(:difficulty)
+      expect(registration).to receive(:create_game)
       registration.call
     end
   end
