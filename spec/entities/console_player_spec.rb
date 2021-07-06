@@ -2,11 +2,12 @@
 
 RSpec.describe ConsolePlayer do
   subject(:registration) { described_class.new }
+
   describe 'when #player type name' do
     let(:incorrect_name) { 'qw' }
 
     it 'puts welcome message' do
-      expect { registration.welcome }.to output("#{I18n.t(:Welcome)}").to_stdout
+      expect { registration.welcome }.to output(I18n.t(:Welcome).to_s).to_stdout
     end
 
     it 'invalid name' do
