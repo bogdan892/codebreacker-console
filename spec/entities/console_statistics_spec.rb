@@ -3,6 +3,7 @@
 RSpec.describe ConsoleStatistics do
   let(:dummy) { Class.new { extend ConsoleStatistics } }
   let(:file_path) { 'spec/fixtures/test.yml' }
+  let(:directory_name) { 'spec/fixtures' }
   let(:result) do
     { user: 'test user',
       difficulty: :easy,
@@ -13,6 +14,7 @@ RSpec.describe ConsoleStatistics do
   end
 
   after do
+    Dir.mkdir(directory_name) unless File.exists?(directory_name)
     File.delete(file_path) if File.exist?(file_path)
   end
 
