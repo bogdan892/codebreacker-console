@@ -8,7 +8,7 @@ class GameState
   end
 
   def user_exit
-    puts(I18n.t(:Exit_Message))
+    puts(I18n.t(:exit_message))
     exit
   end
 end

@@ -7,7 +7,7 @@ RSpec.describe ConsolePlayer do
     let(:incorrect_name) { 'qw' }
 
     it 'puts welcome message' do
-      expect { registration.welcome }.to output(I18n.t(:Welcome).to_s).to_stdout
+      expect { registration.welcome }.to output(I18n.t(:welcome).to_s).to_stdout
     end
 
     it 'invalid name' do
@@ -18,12 +18,14 @@ RSpec.describe ConsolePlayer do
 
     it 'puts enter name' do
       allow(registration).to receive(:user_input).and_return('name')
-      expect { registration.player_name }.to output("#{I18n.t(:EnterName)}\n").to_stdout
+      expect { registration.player_name }.to output("#{I18n.t(:enter_name)}\n").to_stdout
     end
 
     it 'puts invalid name and enter name message' do
       allow(registration).to receive(:user_input).and_return('name')
-      expect { registration.player_name_again }.to output("#{I18n.t(:InvalidName)}\n#{I18n.t(:EnterName)}\n").to_stdout
+      expect do
+        registration.player_name_again
+      end.to output("#{I18n.t(:invalid_name)}\n#{I18n.t(:enter_name)}\n").to_stdout
     end
   end
 
@@ -41,13 +43,6 @@ RSpec.describe ConsolePlayer do
       allow(registration).to receive(:user_input).and_return(correct_difficulty)
       expect(registration).not_to receive(:difficulty_again)
       registration.difficulty
-    end
-
-    it 'puts message if difficulty is incorrect' do
-      allow(registration).to receive(:user_input).and_return('easy')
-      expect do
-        registration.difficulty_again
-      end.to output("#{I18n.t(:InvalidDifficulty)}\n#{I18n.t(:EnterDifficulty)}\n").to_stdout
     end
 
     it 'if called method #call' do

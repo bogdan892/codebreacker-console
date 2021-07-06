@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+require 'pry'
 class ConsoleBases < Checking
   include ConsoleStatistics
   attr_reader :game
@@ -13,11 +14,11 @@ class ConsoleBases < Checking
       player_input
       game_code_check
       game_check_status
-      attemps
+      attemtps
     end
   end
 
-  def attemps
+  def attemtps
     puts I18n.t(:attempts_remain)
     puts game.instance_variable_get(:@attempts)
   end
@@ -34,40 +35,44 @@ class ConsoleBases < Checking
   end
 
   def game_won
-    puts I18n.t(:Won)
+    puts I18n.t(:won)
     puts game.secrete_code
   end
 
   def game_lose
-    puts I18n.t(:Loss)
+    puts I18n.t(:loss)
     puts game.secrete_code
   end
 
   def save_game
-    puts I18n.t(:SaveResult)
+    puts I18n.t(:save_result)
     @player_input = user_input
     save_date(game.to_h) if @player_input == 'yes'
   end
 
   def new_game
-    puts I18n.t(:NewGame)
+    puts I18n.t(:new_game)
     @player_input = user_input
     if @player_input == 'yes'
-      @console_game = ConsolePlayer.new.call
+      create_console
     else
       exit(true)
     end
   end
 
+  def create_console
+    @console_game = ConsolePlayer.new.call
+  end
+
   def player_input_again
-    puts I18n.t(:InvalidCommand)
+    puts I18n.t(:invalid_command)
     player_input
   end
 
   def show_hint
     @hint = game.use_hint
     if @hint == 'false'
-      puts I18n.t(:HintsEnded)
+      puts I18n.t(:hints_ended)
     else
       puts @hint
     end
@@ -75,12 +80,10 @@ class ConsoleBases < Checking
   end
 
   def player_input
-    puts I18n.t(:AccompanyingMsg)
+    puts I18n.t(:accompanying_msg)
     @player_input = user_input
     @player_input == 'hint' ? show_hint : check_input(@player_input)
   end
-
-  private
 
   def game_code_check
     puts game.input_code(@player_input)

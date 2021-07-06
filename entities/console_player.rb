@@ -9,28 +9,28 @@ class ConsolePlayer < Checking
   end
 
   def welcome
-    puts I18n.t(:Welcome)
+    puts I18n.t(:welcome)
   end
 
   def player_name
-    puts I18n.t(:EnterName)
+    puts I18n.t(:enter_name)
     @player_name = user_input
     check_name(@player_name)
   end
 
   def player_name_again
-    puts I18n.t(:InvalidName)
+    puts I18n.t(:invalid_name)
     player_name
   end
 
   def difficulty
-    puts I18n.t(:EnterDifficulty)
+    puts I18n.t(:enter_difficulty)
     @difficulty = user_input
     checks_difficulty(@difficulty)
   end
 
   def difficulty_again
-    puts I18n.t(:InvalidDifficulty)
+    puts I18n.t(:invalid_difficulty)
     difficulty
   end
 

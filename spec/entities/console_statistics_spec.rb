@@ -12,12 +12,16 @@ RSpec.describe ConsoleStatistics do
       total_hint: 3 }
   end
 
+  after do
+    File.delete(file_path) if File.exist?(file_path)
+  end
+
   before do
     stub_const('ConsoleStatistics::PATH_FILE', file_path)
   end
 
-  after do
-    File.delete(file_path) if File.exist?(file_path)
+  describe 'load from empty DB' do
+    it { expect(dummy.load_from_db).to eq [] }
   end
 
   describe 'save to DB' do

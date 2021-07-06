@@ -6,14 +6,14 @@ class ConsoleOptions < GameState
   include ConsoleStatistics
 
   def show_main_menu
-    puts I18n.t(:Welcome)
-    puts I18n.t(:MainMenu)
+    puts I18n.t(:welcome)
+    puts I18n.t(:main_menu)
     @command = user_input
     console_option
   end
 
   def main_menu_error
-    puts I18n.t(:InvalidCommand)
+    puts I18n.t(:invalid_command)
     show_main_menu
   end
 
@@ -31,7 +31,7 @@ class ConsoleOptions < GameState
   end
 
   def game_rules
-    puts I18n.t(:Rules)
+    puts I18n.t(:rules)
     show_main_menu
   end
 
