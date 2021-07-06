@@ -14,7 +14,7 @@ RSpec.describe ConsoleStatistics do
   end
 
   after do
-    Dir.mkdir(directory_name) unless File.exists?(directory_name)
+    Dir.mkdir(directory_name) unless File.exist?(directory_name)
     File.delete(file_path) if File.exist?(file_path)
   end
 
