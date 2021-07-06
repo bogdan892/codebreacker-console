@@ -11,10 +11,15 @@ class ConsoleBases < Checking
   def call
     game.to_h[:attempts_total].times do
       player_input
-      show_hint if @player_input == 'hint'
       game_code_check
       game_check_status
+      attemps
     end
+  end
+
+  def attemps
+    puts I18n.t(:attempts_remain)
+    puts game.instance_variable_get(:@attempts)
   end
 
   def game_check_status
@@ -73,7 +78,7 @@ class ConsoleBases < Checking
   def player_input
     puts I18n.t(:AccompanyingMsg)
     @player_input = user_input
-    check_input(@player_input)
+    @player_input == 'hint' ? show_hint : check_input(@player_input)
   end
 
   private

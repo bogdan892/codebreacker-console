@@ -26,25 +26,34 @@ RSpec.describe ConsoleBases do
       end.to output("#{I18n.t(:InvalidCommand)}\n#{I18n.t(:AccompanyingMsg)}\n").to_stdout
     end
 
-    it 'call to method show hint' do
-      command = %w[1234 hint 1234]
-      allow(console_base).to receive(:gets).and_return(*command)
+    xit 'call to method show hint' do
+      console_base.game.instance_variable_set(:@player_input, '1234'.chars)
+      allow(console_base).to receive(:user_input).and_return('1234')
       allow(console_base).to receive(:exit)
-      expect(console_base).to receive(:show_hint)
+      expect(interface).to receive(:game_check_status)
+      console_base.new_game
+    end
+
+    xit 'call to method show hint' do
+      console_base.game.instance_variable_set(:@player_input, '1234'.chars)
+      console_base.game.instance_variable_set(:@secret_code, '1233'.chars)
+      allow(console_base).to receive(:user_input).and_return('1234')
+      allow(console_base).to receive(:exit)
+      expect(console_base).to receive(:game_check_status)
       console_base.call
     end
 
     it 'show hint value' do
-      console_base.game.instance_variable_set(:@secret_code_for_hints, '1234'.chars)
-      allow(console_base).to receive(:gets).and_return('hint')
-      expect { console_base.show_hint }.to output("4\n#{I18n.t(:AccompanyingMsg)}\n").to_stdout
+      console_base.game.instance_variable_set(:@secret_code_for_hints, '1'.chars)
+      allow(console_base).to receive(:player_input).and_return('1234')
+      expect { console_base.show_hint }.to output("1\n").to_stdout
     end
 
     it 'show message if hint attempts ended' do
       console_base.game.instance_variable_set(:@hints, 0)
       console_base.game.instance_variable_set(:@secret_code_for_hints, '1234'.chars)
-      allow(console_base).to receive(:gets).and_return('hint')
-      expect { console_base.show_hint }.to output("#{I18n.t(:HintsEnded)}\n#{I18n.t(:AccompanyingMsg)}\n").to_stdout
+      allow(console_base).to receive(:player_input).and_return('hint')
+      expect { console_base.show_hint }.to output("#{I18n.t(:HintsEnded)}\n").to_stdout
     end
 
     it 'if game won' do

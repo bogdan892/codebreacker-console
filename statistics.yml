@@ -2,20 +2,27 @@
 :name: Petro
 :difficulty: hard
 :attempts_total: 5
-:attempts_used: 2
+:attempts_used: -2
 :hints_total: 1
 :hints_used: 0
 ---
 :name: Igor
 :difficulty: easy
 :attempts_total: 15
-:attempts_used: 4
+:attempts_used: -4
 :hints_total: 2
 :hints_used: 0
 ---
 :name: Andrey
 :difficulty: medium
 :attempts_total: 10
-:attempts_used: 5
+:attempts_used: -5
+:hints_total: 1
+:hints_used: 0
+---
+:name: '1111'
+:difficulty: hard
+:attempts_total: 5
+:attempts_used: -2
 :hints_total: 1
 :hints_used: 0

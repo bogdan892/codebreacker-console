@@ -3,6 +3,7 @@
 require 'bundler/setup'
 require 'codebreaker'
 require 'i18n'
+require 'pry'
 require 'tty-table'
 require_relative 'i18n'
 require_relative 'game_stat'

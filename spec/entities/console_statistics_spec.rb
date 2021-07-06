@@ -20,10 +20,6 @@ RSpec.describe ConsoleStatistics do
     File.delete(file_path) if File.exist?(file_path)
   end
 
-  describe 'load from empty DB' do
-    it { expect(dummy.load_from_db).to eq [] }
-  end
-
   describe 'save to DB' do
     before { dummy.save_date(result) }
 

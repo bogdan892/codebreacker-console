@@ -2,7 +2,7 @@
 
 require 'yaml'
 module ConsoleStatistics
-  PATH_FILE = '../statistics.yml'
+  PATH_FILE = 'statistics.yml'
 
   def save_date(result)
     File.open(PATH_FILE, 'a') { |file| file.write(result.to_yaml) }
@@ -12,7 +12,6 @@ module ConsoleStatistics
     return [] unless File.exist?(PATH_FILE)
 
     results = YAML.load_stream(File.read(PATH_FILE))
-    # sorted_results = results.sort_by { %i[difficulty attempts_used hints_used] }
     to_table(results)
   end
 
@@ -29,9 +28,9 @@ module ConsoleStatistics
   def initialize_table
     TTY::Table.new(header: ['Name',
                             'Difficulty',
-                            'Attempts used',
-                            'Hints used',
                             'Total attempt',
-                            'Total hints'])
+                            'Attempts used',
+                            'Total hints',
+                            'Hints used'])
   end
 end

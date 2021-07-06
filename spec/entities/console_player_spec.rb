@@ -2,14 +2,11 @@
 
 RSpec.describe ConsolePlayer do
   subject(:registration) { described_class.new }
-
-  let(:qqqqq) { registration.instance_variable_get(:@console_base) }
-
   describe 'when #player type name' do
     let(:incorrect_name) { 'qw' }
 
     it 'puts welcome message' do
-      expect { registration.welcome }.to output("#{I18n.t(:Welcome)}\n").to_stdout
+      expect { registration.welcome }.to output("#{I18n.t(:Welcome)}").to_stdout
     end
 
     it 'invalid name' do

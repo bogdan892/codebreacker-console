@@ -41,3 +41,4 @@ en:
   Exit: 'Goodbye'
   InvalidCommand: 'Please enter a command from the options provided'
   Exit_Message: 'Bye , bye !'
+  attempts_remain: 'Attempts:'
