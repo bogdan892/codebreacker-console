@@ -9,8 +9,11 @@ AllCops:
 Style/Documentation:
   Enabled: false
 
+Lint/MissingSuper:
+  Enabled: false
+
 Layout/LineLength:
-  Max: 120
+  Max: 140
 
 Metrics/BlockLength:
   IgnoredMethods: ['describe', 'context']
