@@ -22,9 +22,6 @@ jobs:
           paths:
             - vendor/bundle
       - run:
-          name: bundle update
-          command: bundle update
-      - run:
           name: Run rubocop
           command: bundle exec rubocop
       - run:

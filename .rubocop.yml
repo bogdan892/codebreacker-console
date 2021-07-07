@@ -5,8 +5,6 @@ require:
 AllCops:
   NewCops: enable
   TargetRubyVersion: 2.7
-  Exclude:
-    - Gemfile
 
 Style/Documentation:
   Enabled: false
@@ -22,4 +20,8 @@ RSpec/ExampleLength:
 
 RSpec/MultipleMemoizedHelpers:
   Max: 10
+
+RSpec/MessageSpies:
+  Enabled: false
+
 
