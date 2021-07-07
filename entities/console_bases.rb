@@ -71,7 +71,7 @@ class ConsoleBases < Checking
 
   def show_hint
     @hint = game.use_hint
-    if @hint == 'false'
+    if @hint == false
       puts I18n.t(:hints_ended)
     else
       puts @hint
