@@ -5,6 +5,8 @@ require:
 AllCops:
   NewCops: enable
   TargetRubyVersion: 2.7
+  Exclude:
+    - Gemfile
 
 Style/Documentation:
   Enabled: false
