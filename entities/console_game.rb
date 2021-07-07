@@ -14,6 +14,7 @@ require_relative 'console_options'
 require_relative 'console_player'
 class GameConsole < ConsoleOptions
   def initialize
+    super
     @game = ConsoleOptions.new
   end
 

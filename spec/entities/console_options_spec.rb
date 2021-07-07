@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 RSpec.describe ConsoleOptions do
-  subject(:console_options) { described_class.new }
+  let(:console_options) { described_class.new }
 
   let(:start) { 'start' }
   let(:stats) { 'stats' }

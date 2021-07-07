@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 RSpec.describe ConsolePlayer do
-  subject(:registration) { described_class.new }
+  let(:registration) { described_class.new }
 
   describe 'when #player type name' do
     let(:incorrect_name) { 'qw' }

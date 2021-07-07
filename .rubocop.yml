@@ -5,15 +5,14 @@ require:
 AllCops:
   NewCops: enable
   TargetRubyVersion: 2.7
+  Exclude:
+    - Gemfile
 
 Style/Documentation:
   Enabled: false
 
-Lint/MissingSuper:
-  Enabled: false
-
 Layout/LineLength:
-  Max: 140
+  Max: 120
 
 Metrics/BlockLength:
   IgnoredMethods: ['describe', 'context']
@@ -25,7 +24,4 @@ RSpec/MultipleMemoizedHelpers:
   Max: 10
 
 RSpec/MessageSpies:
-  Enabled: false
-
-RSpec/SubjectStub:
   Enabled: false

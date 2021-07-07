@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+require_relative '../spec_helper'
 RSpec.describe ConsoleStatistics do
   let(:dummy) { Class.new { extend ConsoleStatistics } }
   let(:file_path) { 'spec/fixtures/test.yml' }
@@ -14,11 +15,12 @@ RSpec.describe ConsoleStatistics do
   end
 
   after do
-    Dir.mkdir(directory_name) unless File.exist?(directory_name)
     File.delete(file_path) if File.exist?(file_path)
+    Dir.rmdir(directory_name) if File.exist?(directory_name)
   end
 
   before do
+    Dir.mkdir(directory_name) unless File.exist?(directory_name)
     stub_const('ConsoleStatistics::PATH_FILE', file_path)
   end
 

@@ -12,7 +12,7 @@ RSpec.describe GameConsole do
 
     it 'when #start show main menu' do
       allow(console).to receive(:gets).and_return('exit')
-      expect(interface).to receive(:show_main_menu)
+      allow(interface).to receive(:show_main_menu)
       console.start
     end
   end

@@ -1,11 +1,11 @@
 # frozen_string_literal: true
 
-require 'pry'
 class ConsoleBases < Checking
   include ConsoleStatistics
   attr_reader :game
 
   def initialize(name, difficulty)
+    super()
     @game = Codebreaker::Game.new(name, difficulty)
   end
 
